@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order-Page</title>
+    <link rel="stylesheet" href="./css/order.css">
+    <link rel="stylesheet" href="./css/global.css">
+</head>
+
+<body>
+    <div class="main">
+        <div class="header">
+            <div class="nav-bar">
+                <nav class="logo">
+                    <div class="hamburger" id="hamburger">
+                        <img src="./assets/Icons.svg" alt="Hamburger Icon" class="menu-icon">
+                        <img src="./assets/close-img.svg" alt="Hamburger Icon" class="close-icon-h" />
+                    </div>
+                    <a href="index.html">
+                        <img src="./assets/Logo.svg" alt="Logo" id="logo-img">
+                    </a>
+                    <ul class="nav-links" id="navLinks">
+                        <li><a href="index.html">All Products</a></li>
+                        <li><a href="#" id="spices">Spices</a></li>
+                        <li><a href="#" id="masalas">Masalas</a></li>
+                    </ul>
+                </nav>
+                <div class="icons">
+                    <div class="search-icon">
+                        <a href="#" id="searchTrigger">
+                            <img src="./assets/search-icon.svg" alt="Search-Icon" id="searchIcon">
+                        </a>
+                    </div>
+
+                    <div class="search-box" id="searchBox">
+                        <img src="./assets/search-icon.svg" class="search-left-icon" alt="Search" id="searchButton"
+                            style="cursor:pointer">
+                        <input type="text" placeholder="Search Products" class="search-input" id="searchInput" />
+                        <img src="./assets/close-img.svg" alt="Close" class="search-close-icon" id="searchCloseIcon">
+                    </div>
+
+                    <div class="cart-notification">
+                        <div class="bag-container">
+                            <img src="./assets/Cart.svg" alt="" id="cart-icon-cartPage">
+                            <div class="item-count">10</div>
+                        </div>
+                        <div class="price-nav-container">
+                            <div class="rupee-symbol">₹</div>
+                            <div class="price-nav" id="price-navbar-data">100.00</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Content and Cart Details Section -->
+        <div class="main-container">
+            <!-- Product Section --->
+            <div class="product-section">
+                <div class="product-header">
+                    <p> <span>All</span> Products</p>
+                </div>
+                <div class="all-products">
+                    <div class="product-card">
+                        <img src="./assets/Corainder Powder.svg" alt="Coriander Powder" class="product-image"
+                            id="product-image">
+                        <div class="product-details-1">
+                            <div class="product-title" id="product-title">Coriander Powder</div>
+                            <div class="product-price" id="product-price">₹ 100.00</div>
+
+                            <div class="selectors">
+                                <div class="custom-dropdown">
+                                    <div class="selected-option">
+                                        <span id="selected">100g</span>
+                                        <div class="description">
+                                            <p id="product-description" class="product-description">Coriander powder,
+                                                made
+                                                from ground
+                                                coriander seeds, offers
+                                                a mild, sweet flavor with hints of citrus. It's a versatile spice used
+                                                in
+                                                various dishes, including curries, baked goods, and pickles. Beyond its
+                                                culinary
+                                                uses, coriander powder is known for health benefits like aiding
+                                                digestion
+                                                and
+                                                providing essential nutrients.
+                                            </p>
+                                        </div>
+                                        <!-- <svg class="dropdown-icon" width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                            <path d="M6 9l6 6 6-6" stroke="#383838" stroke-width="2" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                        </svg> -->
+                                        <img src="./assets/drop-down.svg" alt="" id="dropdown-icon">
+                                    </div>
+                                    <ul class="dropdown-option" style="display: none;">
+                                        <li>1000g</li>
+                                        <li>500g</li>
+                                        <li>200g</li>
+                                        <li>100g</li>
+                                        <li>50g</li>
+                                    </ul>
+                                </div>
+
+                                <div class="quantity-control-1">
+                                    <button class="decrease">
+                                        <!-- <img src="./assets/minus vector.svg" alt="" id="minus"> -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="2" viewBox="0 0 10 2"
+                                            fill="none">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M0 1C0 0.654822 0.279822 0.375 0.625 0.375H9.375C9.72018 0.375 10 0.654822 10 1C10 1.34518 9.72018 1.625 9.375 1.625H0.625C0.279822 1.625 0 1.34518 0 1Z"
+                                                fill="#383838" />
+                                        </svg>
+                                    </button>
+                                    <span class="quantity">1</span>
+                                    <button class="increase">
+                                        <!-- <img src="./assets/ plus vector.svg" alt="" id="plus"> -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10"
+                                            viewBox="0 0 10 10" fill="none">
+                                            <g clip-path="url(#clip0_684_474)">
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M10 5C10 5.35 9.72 5.63 9.38 5.63H5.62V9.38C5.62 9.72 5.35 10 5 10C4.65 10 4.37 9.72 4.37 9.38V5.63H0.62C0.28 5.63 0 5.35 0 5C0 4.65 0.28 4.38 0.62 4.38H4.37V0.63C4.37 0.28 4.65 0 5 0C5.35 0 5.62 0.28 5.62 0.63V4.38H9.38C9.72 4.38 10 4.65 10 5Z"
+                                                    fill="#383838" />
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip0_684_474">
+                                                    <rect width="10" height="10" fill="white" />
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <button class="add-to-cart-1" id="addToCart">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <img src=" ./assets/chilli powder.svg" alt="Coriander Powder" class="product-image"
+                            id="product-image">
+
+                        <div class="product-details-1">
+                            <div class="product-title">Chilli Powder</div>
+                            <div class="product-price" id="product-price">₹ 100.00</div>
+
+                            <div class="selectors">
+                                <div class="custom-dropdown">
+                                    <div class="selected-option">
+                                        <span id="selected">100g</span>
+                                        <div class="description">
+                                            <p id="product-description" class="product-description">Chilly powder, made
+                                                from
+                                                dried and
+                                                ground red chilies, adds
+                                                a vibrant heat and bold flavor to dishes. It's a key spice in a wide
+                                                range
+                                                of
+                                                cuisines, enhancing curries, stews, marinades, and snacks. Apart from
+                                                its
+                                                fiery
+                                                taste, chilly powder is valued for its health benefits, including
+                                                boosting
+                                                metabolism, improving digestion, and providing antioxidants like vitamin
+                                                C.
+                                            </p>
+                                        </div>
+                                        <!-- <svg class="dropdown-icon" width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                            <path d="M6 9l6 6 6-6" stroke="#333" stroke-width="2" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                        </svg> -->
+                                        <img src="./assets/drop-down.svg" alt="" id="dropdown-icon">
+
+                                    </div>
+                                    <ul class="dropdown-option">
+                                        <li>1000g</li>
+                                        <li>500g</li>
+                                        <li>200g</li>
+                                        <li>100g</li>
+                                        <li>50g</li>
+                                    </ul>
+                                </div>
+
+                                <div class="quantity-control-1">
+                                    <button class="decrease">
+                                        <!-- <img src="./assets/minus vector.svg" alt="" id="minus"> -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="2" viewBox="0 0 10 2"
+                                            fill="none">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M0 1C0 0.654822 0.279822 0.375 0.625 0.375H9.375C9.72018 0.375 10 0.654822 10 1C10 1.34518 9.72018 1.625 9.375 1.625H0.625C0.279822 1.625 0 1.34518 0 1Z"
+                                                fill="#383838" />
+                                        </svg>
+                                    </button>
+                                    <span class="quantity">1</span>
+                                    <button class="increase">
+                                        <!-- <img src="./assets/ plus vector.svg" alt="" id="plus"> -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10"
+                                            viewBox="0 0 10 10" fill="none">
+                                            <g clip-path="url(#clip0_684_474)">
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M10 5C10 5.35 9.72 5.63 9.38 5.63H5.62V9.38C5.62 9.72 5.35 10 5 10C4.65 10 4.37 9.72 4.37 9.38V5.63H0.62C0.28 5.63 0 5.35 0 5C0 4.65 0.28 4.38 0.62 4.38H4.37V0.63C4.37 0.28 4.65 0 5 0C5.35 0 5.62 0.28 5.62 0.63V4.38H9.38C9.72 4.38 10 4.65 10 5Z"
+                                                    fill="#383838" />
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip0_684_474">
+                                                    <rect width="10" height="10" fill="white" />
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <button class="add-to-cart-1" id="addToCart">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <img src="./assets/jeera powder.svg" alt="Coriander Powder" class="product-image"
+                            id="product-image">
+
+                        <div class="product-details-1">
+                            <div class="product-title">jeera Powder</div>
+                            <div class="product-price" id="product-price">₹ 100.00</div>
+
+                            <div class="selectors">
+                                <div class="custom-dropdown">
+                                    <div class="selected-option">
+                                        <span id="selected">100g</span>
+                                        <div class="description">
+                                            <p id="product-description" class="product-description">Coriander powder,
+                                                made
+                                                from ground
+                                                coriander seeds, offers
+                                                a mild, sweet flavor with hints of citrus. It's a versatile spice used
+                                                in
+                                                various dishes, including curries, baked goods, and pickles. Beyond its
+                                                culinary
+                                                uses, coriander powder is known for health benefits like aiding
+                                                digestion
+                                                and
+                                                providing essential nutrients.
+                                            </p>
+                                        </div>
+                                        <!-- <svg class="dropdown-icon" width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                            <path d="M6 9l6 6 6-6" stroke="#333" stroke-width="2" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                        </svg> -->
+                                        <img src="./assets/drop-down.svg" alt="" id="dropdown-icon">
+
+                                    </div>
+                                    <ul class="dropdown-option">
+                                        <li>1000g</li>
+                                        <li>500g</li>
+                                        <li>200g</li>
+                                        <li>100g</li>
+                                        <li>50g</li>
+                                    </ul>
+                                </div>
+
+                                <div class="quantity-control-1">
+                                    <button class="decrease">
+                                        <!-- <img src="./assets/minus vector.svg" alt="" id="minus"> -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="2" viewBox="0 0 10 2"
+                                            fill="none">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M0 1C0 0.654822 0.279822 0.375 0.625 0.375H9.375C9.72018 0.375 10 0.654822 10 1C10 1.34518 9.72018 1.625 9.375 1.625H0.625C0.279822 1.625 0 1.34518 0 1Z"
+                                                fill="#383838" />
+                                        </svg>
+                                    </button>
+                                    <span class="quantity">1</span>
+                                    <button class="increase">
+                                        <!-- <img src="./assets/ plus vector.svg" alt="" id="plus"> -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10"
+                                            viewBox="0 0 10 10" fill="none">
+                                            <g clip-path="url(#clip0_684_474)">
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M10 5C10 5.35 9.72 5.63 9.38 5.63H5.62V9.38C5.62 9.72 5.35 10 5 10C4.65 10 4.37 9.72 4.37 9.38V5.63H0.62C0.28 5.63 0 5.35 0 5C0 4.65 0.28 4.38 0.62 4.38H4.37V0.63C4.37 0.28 4.65 0 5 0C5.35 0 5.62 0.28 5.62 0.63V4.38H9.38C9.72 4.38 10 4.65 10 5Z"
+                                                    fill="#383838" />
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip0_684_474">
+                                                    <rect width="10" height="10" fill="white" />
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <button class="add-to-cart-1" id="addToCart">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <img src="./assets/Tumeric Powder.svg" alt="Coriander Powder" class="product-image"
+                            id="product-image">
+
+                        <div class="product-details-1">
+                            <div class="product-title">Turmeric Powder</div>
+                            <div class="product-price" id="product-price">₹ 100.00</div>
+
+                            <div class="selectors">
+                                <div class="custom-dropdown">
+                                    <div class="selected-option">
+                                        <span id="selected">100g</span>
+                                        <div class="description">
+                                            <p id="product-description" class="product-description">Turmeric powder,
+                                                derived
+                                                from
+                                                dried turmeric roots, offers
+                                                a warm, bitter flavor with a hint of earthiness. It's widely used in
+                                                curries,
+                                                soups, rice dishes, and health drinks for its vibrant color and
+                                                distinctive
+                                                taste. Beyond its culinary role, turmeric powder is celebrated for its
+                                                powerful
+                                                anti-inflammatory properties, antioxidant benefits, and support for
+                                                overall
+                                                wellness.
+                                            </p>
+                                        </div>
+                                        <!-- <svg class="dropdown-icon" width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                            <path d="M6 9l6 6 6-6" stroke="#333" stroke-width="2" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                        </svg> -->
+                                        <img src="./assets/drop-down.svg" alt="" id="dropdown-icon">
+
+                                    </div>
+                                    <ul class="dropdown-option">
+                                        <li>1000g</li>
+                                        <li>500g</li>
+                                        <li>200g</li>
+                                        <li>100g</li>
+                                        <li>50g</li>
+                                    </ul>
+                                </div>
+
+                                <div class="quantity-control-1">
+                                    <button class="decrease">
+                                        <!-- <img src="./assets/minus vector.svg" alt="" id="minus"> -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="2" viewBox="0 0 10 2"
+                                            fill="none">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M0 1C0 0.654822 0.279822 0.375 0.625 0.375H9.375C9.72018 0.375 10 0.654822 10 1C10 1.34518 9.72018 1.625 9.375 1.625H0.625C0.279822 1.625 0 1.34518 0 1Z"
+                                                fill="#383838" />
+                                        </svg>
+                                    </button>
+                                    <span class="quantity">1</span>
+                                    <button class="increase">
+                                        <!-- <img src="./assets/ plus vector.svg" alt="" id="plus"> -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10"
+                                            viewBox="0 0 10 10" fill="none">
+                                            <g clip-path="url(#clip0_684_474)">
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M10 5C10 5.35 9.72 5.63 9.38 5.63H5.62V9.38C5.62 9.72 5.35 10 5 10C4.65 10 4.37 9.72 4.37 9.38V5.63H0.62C0.28 5.63 0 5.35 0 5C0 4.65 0.28 4.38 0.62 4.38H4.37V0.63C4.37 0.28 4.65 0 5 0C5.35 0 5.62 0.28 5.62 0.63V4.38H9.38C9.72 4.38 10 4.65 10 5Z"
+                                                    fill="#383838" />
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip0_684_474">
+                                                    <rect width="10" height="10" fill="white" />
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <button class="add-to-cart-1" id="addToCart">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <img src="./assets/Corainder Powder.svg" alt="Coriander Powder" class="product-image"
+                            id="product-image">
+                        <div class="product-details-1">
+                            <div class="product-title" id="product-title">Coriander Powder</div>
+                            <div class="product-price" id="product-price">₹ 100.00</div>
+
+                            <div class="selectors">
+                                <div class="custom-dropdown">
+                                    <div class="selected-option">
+                                        <span id="selected">100g</span>
+                                        <div class="description">
+                                            <p id="product-description" class="product-description">Coriander powder,
+                                                made
+                                                from ground
+                                                coriander seeds, offers
+                                                a mild, sweet flavor with hints of citrus. It's a versatile spice used
+                                                in
+                                                various dishes, including curries, baked goods, and pickles. Beyond its
+                                                culinary
+                                                uses, coriander powder is known for health benefits like aiding
+                                                digestion
+                                                and
+                                                providing essential nutrients.
+                                            </p>
+                                        </div>
+                                        <!-- <svg class="dropdown-icon" width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                            <path d="M6 9l6 6 6-6" stroke="#383838" stroke-width="2" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                        </svg> -->
+                                        <img src="./assets/drop-down.svg" alt="" id="dropdown-icon">
+                                    </div>
+                                    <ul class="dropdown-option" style="display: none;">
+                                        <li>1000g</li>
+                                        <li>500g</li>
+                                        <li>200g</li>
+                                        <li>100g</li>
+                                        <li>50g</li>
+                                    </ul>
+                                </div>
+
+                                <div class="quantity-control-1">
+                                    <button class="decrease">
+                                        <!-- <img src="./assets/minus vector.svg" alt="" id="minus"> -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="2" viewBox="0 0 10 2"
+                                            fill="none">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M0 1C0 0.654822 0.279822 0.375 0.625 0.375H9.375C9.72018 0.375 10 0.654822 10 1C10 1.34518 9.72018 1.625 9.375 1.625H0.625C0.279822 1.625 0 1.34518 0 1Z"
+                                                fill="#383838" />
+                                        </svg>
+                                    </button>
+                                    <span class="quantity">1</span>
+                                    <button class="increase">
+                                        <!-- <img src="./assets/ plus vector.svg" alt="" id="plus"> -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10"
+                                            viewBox="0 0 10 10" fill="none">
+                                            <g clip-path="url(#clip0_684_474)">
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M10 5C10 5.35 9.72 5.63 9.38 5.63H5.62V9.38C5.62 9.72 5.35 10 5 10C4.65 10 4.37 9.72 4.37 9.38V5.63H0.62C0.28 5.63 0 5.35 0 5C0 4.65 0.28 4.38 0.62 4.38H4.37V0.63C4.37 0.28 4.65 0 5 0C5.35 0 5.62 0.28 5.62 0.63V4.38H9.38C9.72 4.38 10 4.65 10 5Z"
+                                                    fill="#383838" />
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip0_684_474">
+                                                    <rect width="10" height="10" fill="white" />
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <button class="add-to-cart-1" id="addToCart">Add to Cart</button>
+                        </div>
+                    </div>
+
+
+                    <div class="product-card">
+                        <img src=" ./assets/chilli powder.svg" alt="Coriander Powder" class="product-image"
+                            id="product-image">
+
+                        <div class="product-details-1">
+                            <div class="product-title">Chilli Powder</div>
+                            <div class="product-price" id="product-price">₹ 100.00</div>
+
+                            <div class="selectors">
+                                <div class="custom-dropdown">
+                                    <div class="selected-option">
+                                        <span id="selected">100g</span>
+                                        <div class="description">
+                                            <p id="product-description" class="product-description">Coriander powder,
+                                                made
+                                                from ground
+                                                coriander seeds, offers
+                                                a mild, sweet flavor with hints of citrus. It's a versatile spice used
+                                                in
+                                                various dishes, including curries, baked goods, and pickles. Beyond its
+                                                culinary
+                                                uses, coriander powder is known for health benefits like aiding
+                                                digestion
+                                                and
+                                                providing essential nutrients.
+                                            </p>
+                                        </div>
+                                        <!-- <svg class="dropdown-icon" width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                            <path d="M6 9l6 6 6-6" stroke="#333" stroke-width="2" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                        </svg> -->
+                                        <img src="./assets/drop-down.svg" alt="" id="dropdown-icon">
+
+                                    </div>
+                                    <ul class="dropdown-option">
+                                        <li>1000g</li>
+                                        <li>500g</li>
+                                        <li>200g</li>
+                                        <li>100g</li>
+                                        <li>50g</li>
+                                    </ul>
+                                </div>
+
+                                <div class="quantity-control-1">
+                                    <button class="decrease">
+                                        <!-- <img src="./assets/minus vector.svg" alt="" id="minus"> -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="2" viewBox="0 0 10 2"
+                                            fill="none">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M0 1C0 0.654822 0.279822 0.375 0.625 0.375H9.375C9.72018 0.375 10 0.654822 10 1C10 1.34518 9.72018 1.625 9.375 1.625H0.625C0.279822 1.625 0 1.34518 0 1Z"
+                                                fill="#383838" />
+                                        </svg>
+                                    </button>
+                                    <span class="quantity">1</span>
+                                    <button class="increase">
+                                        <!-- <img src="./assets/ plus vector.svg" alt="" id="plus"> -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10"
+                                            viewBox="0 0 10 10" fill="none">
+                                            <g clip-path="url(#clip0_684_474)">
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M10 5C10 5.35 9.72 5.63 9.38 5.63H5.62V9.38C5.62 9.72 5.35 10 5 10C4.65 10 4.37 9.72 4.37 9.38V5.63H0.62C0.28 5.63 0 5.35 0 5C0 4.65 0.28 4.38 0.62 4.38H4.37V0.63C4.37 0.28 4.65 0 5 0C5.35 0 5.62 0.28 5.62 0.63V4.38H9.38C9.72 4.38 10 4.65 10 5Z"
+                                                    fill="#383838" />
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip0_684_474">
+                                                    <rect width="10" height="10" fill="white" />
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <button class="add-to-cart-1" id="addToCart">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <img src="./assets/jeera powder.svg" alt="Coriander Powder" class="product-image"
+                            id="product-image">
+
+                        <div class="product-details-1">
+                            <div class="product-title">jeera Powder</div>
+                            <div class="product-price" id="product-price">₹ 100.00</div>
+
+                            <div class="selectors">
+                                <div class="custom-dropdown">
+                                    <div class="selected-option">
+                                        <span id="selected">100g</span>
+                                        <div class="description">
+                                            <p id="product-description" class="product-description">Jeera powder, made
+                                                from
+                                                finely
+                                                ground cumin seeds, brings a
+                                                warm, earthy flavor with a hint of nuttiness to dishes. It's a staple
+                                                spice
+                                                used
+                                                in curries, rice dishes, soups, and spice blends. In addition to its
+                                                rich
+                                                aroma
+                                                and taste, jeera powder offers health benefits like aiding digestion,
+                                                boosting
+                                                immunity, and providing essential minerals like iron.
+                                            </p>
+                                        </div>
+                                        <!-- <svg class="dropdown-icon" width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                            <path d="M6 9l6 6 6-6" stroke="#333" stroke-width="2" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                        </svg> -->
+                                        <img src="./assets/drop-down.svg" alt="" id="dropdown-icon">
+
+                                    </div>
+                                    <ul class="dropdown-option">
+                                        <li>1000g</li>
+                                        <li>500g</li>
+                                        <li>200g</li>
+                                        <li>100g</li>
+                                        <li>50g</li>
+                                    </ul>
+                                </div>
+
+                                <div class="quantity-control-1">
+                                    <button class="decrease">
+                                        <!-- <img src="./assets/minus vector.svg" alt="" id="minus"> -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="2" viewBox="0 0 10 2"
+                                            fill="none">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M0 1C0 0.654822 0.279822 0.375 0.625 0.375H9.375C9.72018 0.375 10 0.654822 10 1C10 1.34518 9.72018 1.625 9.375 1.625H0.625C0.279822 1.625 0 1.34518 0 1Z"
+                                                fill="#383838" />
+                                        </svg>
+                                    </button>
+                                    <span class="quantity">1</span>
+                                    <button class="increase">
+                                        <!-- <img src="./assets/ plus vector.svg" alt="" id="plus"> -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10"
+                                            viewBox="0 0 10 10" fill="none">
+                                            <g clip-path="url(#clip0_684_474)">
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M10 5C10 5.35 9.72 5.63 9.38 5.63H5.62V9.38C5.62 9.72 5.35 10 5 10C4.65 10 4.37 9.72 4.37 9.38V5.63H0.62C0.28 5.63 0 5.35 0 5C0 4.65 0.28 4.38 0.62 4.38H4.37V0.63C4.37 0.28 4.65 0 5 0C5.35 0 5.62 0.28 5.62 0.63V4.38H9.38C9.72 4.38 10 4.65 10 5Z"
+                                                    fill="#383838" />
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip0_684_474">
+                                                    <rect width="10" height="10" fill="white" />
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <button class="add-to-cart-1" id="addToCart">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <img src="./assets/Tumeric Powder.svg" alt="Coriander Powder" class="product-image"
+                            id="product-image">
+
+                        <div class="product-details-1">
+                            <div class="product-title">Turmeric Powder</div>
+                            <div class="product-price" id="product-price">₹ 100.00</div>
+
+                            <div class="selectors">
+                                <div class="custom-dropdown">
+                                    <div class="selected-option">
+                                        <span id="selected">100g</span>
+                                        <div class="description">
+                                            <p id="product-description" class="product-description">Turmeric powder,
+                                                derived
+                                                from
+                                                dried turmeric roots, offers
+                                                a warm, bitter flavor with a hint of earthiness. It's widely used in
+                                                curries,
+                                                soups, rice dishes, and health drinks for its vibrant color and
+                                                distinctive
+                                                taste. Beyond its culinary role, turmeric powder is celebrated for its
+                                                powerful
+                                                anti-inflammatory properties, antioxidant benefits, and support for
+                                                overall
+                                                wellness.
+                                            </p>
+                                        </div>
+                                        <!-- <svg class="dropdown-icon" width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                            <path d="M6 9l6 6 6-6" stroke="#333" stroke-width="2" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                        </svg> -->
+                                        <img src="./assets/drop-down.svg" alt="" id="dropdown-icon">
+
+                                    </div>
+                                    <ul class="dropdown-option">
+                                        <li>1000g</li>
+                                        <li>500g</li>
+                                        <li>200g</li>
+                                        <li>100g</li>
+                                        <li>50g</li>
+                                    </ul>
+                                </div>
+
+                                <div class="quantity-control-1">
+                                    <button class="decrease">
+                                        <!-- <img src="./assets/minus vector.svg" alt="" id="minus"> -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="2" viewBox="0 0 10 2"
+                                            fill="none">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M0 1C0 0.654822 0.279822 0.375 0.625 0.375H9.375C9.72018 0.375 10 0.654822 10 1C10 1.34518 9.72018 1.625 9.375 1.625H0.625C0.279822 1.625 0 1.34518 0 1Z"
+                                                fill="#383838" />
+                                        </svg>
+                                    </button>
+                                    <span class="quantity">1</span>
+                                    <button class="increase">
+                                        <!-- <img src="./assets/ plus vector.svg" alt="" id="plus"> -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10"
+                                            viewBox="0 0 10 10" fill="none">
+                                            <g clip-path="url(#clip0_684_474)">
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M10 5C10 5.35 9.72 5.63 9.38 5.63H5.62V9.38C5.62 9.72 5.35 10 5 10C4.65 10 4.37 9.72 4.37 9.38V5.63H0.62C0.28 5.63 0 5.35 0 5C0 4.65 0.28 4.38 0.62 4.38H4.37V0.63C4.37 0.28 4.65 0 5 0C5.35 0 5.62 0.28 5.62 0.63V4.38H9.38C9.72 4.38 10 4.65 10 5Z"
+                                                    fill="#383838" />
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip0_684_474">
+                                                    <rect width="10" height="10" fill="white" />
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <button class="add-to-cart-1" id="addToCart">Add to Cart</button>
+                        </div>
+                    </div>
+                    <!-- <div class="click-more">
+                    <p>Click here for more products</p>
+                </div> -->
+                </div>
+
+            </div>
+            <!-- end of product section -->
+
+            <div class="back-tick">
+                <a href="#"> <img src="./assets/Frame 31.svg" alt="Back" id="back">
+                </a>
+                <a href="#" class="back-button">Back</a>
+            </div>
+            <div class="cart-container">
+                <h2 id="cart-h2">Your Cart</h2>
+                <div class="cart-item-container" id="cartItemContainer">
+                </div>
+                <div class="summary">
+                    <p><span class="label">Subtotal</span> <span class="value" id="subtotal">₹ 400.00</span></p>
+                    <p><span class="label">Shipping Charges</span> <span class="value" id="shipping">₹ 50.00</span></p>
+                    <p class="total"><span class="label">Payment Amount</span> <span class="value" id="total-payment">₹
+                            450.00</span></p>
+                    <button id="confirm-btn">Confirm Order</button>
+                </div>
+
+                <!-- fotter section -->
+                <div class="fotter" id="footer">
+                    <div class="text-fotter" id="text-fotter">
+                        <h2 id="fotter-h2">Questions or Concerns</h2>
+                        <p>Need help choosing the perfect spice or need any more details? Contact us now!</p>
+                    </div>
+
+                    <div class="img-contact-details">
+                        <img src="./assets/Logo.svg" alt="">
+                        <p>Email: abc@ex.com</p>
+                        <p>Contact No: +91 1234567890</p>
+                    </div>
+
+                    <div class="footer-icons">
+                        <a href="#">
+                            <img src="./assets/instagram 2.svg" alt="Instagram">
+                        </a>
+                        <a href="#">
+                            <img src="./assets/whatsapp.svg" alt="Facebook">
+                        </a>
+                        <a href="#">
+                            <img src="./assets/Facebook.svg" alt="Twitter">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Verification for exisiting User  -->
+        <div id="otpModalExisting" class="modal-overlay hidden">
+            <div class="modal">
+                <button class="close-btn-2" onclick="closeModal()">
+                    <img src="./assets/x-symbol-svgrepo-com.svg" alt="">
+                </button>
+                <h2>Verify Mobile Number</h2>
+                <div class="mobile-number-detail">
+                    <p id="mobile-number">Mobile Number</p>
+                    <div class="phone-input-container-existing-user">
+                        <span class="country-code-existing-user">+91</span>
+                        <input id="phoneNumberInput" class="phone-number-exitsing-user" type="text"
+                            value="123456 78904" />
+                    </div>
+                </div>
+
+                <p id="info-text-existing-user">
+                    Please check your mobile number. Click 'Proceed' to continue or 'Edit' to change it.
+                </p>
+                <div class="buttons-exitsting-user">
+                    <button id="proceed">Proceed</button>
+                    <button id="edit">Edit</button>
+                </div>
+            </div>
+        </div>
+        <!-- Verification for New User  -->
+        <div id="otpModalNew" class="modal-overlay hidden">
+            <div class="modal">
+                <button class="close-btn-2" onclick="closeModal()">
+                    <img src="./assets/x-symbol-svgrepo-com.svg" alt="">
+                </button>
+                <h2>Verify Mobile Number</h2>
+                <div class="mobile-number-detail">
+                    <p id="mobile-number">Mobile Number</p>
+                    <div class="phone-input-container">
+                        <span class="country-code">+91</span>
+                        <input id="phoneNumberInput" class="phone-number" type="text" value="123456 78904" />
+                    </div>
+                </div>
+                <p class="info-text">To verify your mobile number, an OTP (One-Time Password) will be sent
+                    to your phone.</p>
+                <button class="send-otp-btn" id="sendOtpBtn">Send OTP</button>
+            </div>
+        </div>
+        <!-- Otp Verification  -->
+        <div id="Otp-Verify" class="modal-overlay hidden">
+            <div class="modal">
+                <button class="close-btn-2" onclick="closeModal()">
+                    <img src="./assets/x-symbol-svgrepo-com.svg" alt="">
+                </button>
+                <h2>Verify Number</h2>
+                <div class="mobile-number-detail">
+                    <p id="mobile-number">OTP Number</p>
+                    <div class="input-container">
+                        <input class="enter" type="text" placeholder="Please Enter" />
+                    </div>
+                </div>
+                <button class="send-otp-btn">Verify</button>
+                <div class="text-otp">
+                    <h4 class="para-h4">Resend OTP</h4>
+                    <h3 class="para-h3">Change Mobile Number</h3>
+                </div>
+            </div>
+        </div>
+        <!-- order Confirmation -->
+        <div class="order-confirmation hidden">
+            <div class="order-details">
+                <img src="./assets/Status.svg" alt="status">
+                <div class="text-order">
+                    <h2>Order placed successfully</h2>
+                    <p>Order No:12345</p>
+                </div>
+                <div class="payment-details">
+                    <p>Payment Amount<span class="four-five">₹450.00</span></p>
+                    <p class="subtotal">Subtotal <span class="four">₹400.00</span></p>
+                    <p>Shipping Charges <span class="five">₹50.00</span></p>
+                </div>
+                <p class="Thank-you">Thank you for your order! To complete your purchase, our team will contact you
+                    shortly to assist
+                    with the payment process and collect your shipping address details.</p>
+
+                <div class="social-icons">
+                    <a href="#">
+                        <img src="./assets/instagram 2.svg" alt="Instagram">
+                    </a>
+                    <a href="#">
+                        <img src="./assets/whatsapp.svg" alt="Facebook">
+                    </a>
+                    <a href="#">
+                        <img src="./assets/Facebook.svg" alt="Twitter">
+                    </a>
+                </div>
+                <button class="ok-btn">Ok</button>
+            </div>
+        </div>
+
+        <div id="popup-container"></div>
+
+    </div>
+
+    <script src="./js/script.js"></script>
+    <script src="./js/navbar.js"></script>
+    <script src="./js/order.js"></script>
+</body>
+
+</html>

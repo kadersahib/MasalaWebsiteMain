@@ -1,0 +1,50 @@
+[
+    {
+        "title": "Coriander Powder",
+        "imageSrc": "./assets/Corainder Powder.svg",
+        "price": "₹ 100.00",
+        "description": "Coriander powder, made from ground coriander seeds, offers a mild, sweet flavor with hints of citrus. It's a versatile spice used in various dishes, including curries, baked goods, and pickles. Beyond its culinary uses, coriander powder is known for health benefits like aiding digestion and providing essential nutrients."
+    },
+    {
+        "title": "Chilli Powder",
+        "imageSrc": "./assets/chilli powder.svg",
+        "price": "₹ 100.00",
+        "description": "Chili powder, made from dried and ground red chilies, adds a vibrant heat and bold flavor to dishes. It's a key spice in a wide range of cuisines, enhancing curries, stews, marinades, and snacks. Apart from its fiery taste, chili powder is valued for its health benefits, including boosting metabolism, improving digestion, and providing antioxidants like Vitamin C."
+    },
+    {
+        "title": "Jeera Powder",
+        "imageSrc": "./assets/jeera powder.svg",
+        "price": "₹ 100.00",
+        "description": "Jeera powder, made from ground cumin seeds, coriander seeds offers a warm, earthy flavor that enhances a wide variety of dishes. It's commonly used in curries, stews, rice dishes, and soups. Jeera powder is also known for its digestive benefits and can aid in relieving bloating and indigestion."
+    },
+    {
+        "title": "Turmeric Powder",
+        "imageSrc": "./assets/Tumeric Powder.svg",
+        "price": "₹ 100.00",
+        "description": "Turmeric powder, derived from the root of the turmeric plant, has a distinct yellow color and earthy, slightly bitter flavor. It's widely used in cooking, especially in curries and soups. Turmeric is also praised for its anti-inflammatory and antioxidant properties, which are beneficial for overall health."
+    },
+    {
+        "title": "Coriander Powder",
+        "imageSrc": "./assets/Corainder Powder.svg",
+        "price": "₹ 100.00",
+        "description": "Coriander powder, made from ground coriander seeds, offers a mild, sweet flavor with hints of citrus. It's a versatile spice used in various dishes, including curries, baked goods, and pickles. Beyond its culinary uses, coriander powder is known for health benefits like aiding digestion and providing essential nutrients."
+    },
+    {
+        "title": "Chilli Powder",
+        "imageSrc": "./assets/chilli powder.svg",
+        "price": "₹ 100.00",
+        "description": "Chili powder, made from dried and ground red chilies, coriander seeds adds a vibrant heat and bold flavor to dishes. It's a key spice in a wide range of cuisines, enhancing curries, stews, marinades, and snacks. Apart from its fiery taste, chili powder is valued for its health benefits, including boosting metabolism, improving digestion, and providing antioxidants like Vitamin C."
+    },
+    {
+        "title": "Jeera Powder",
+        "imageSrc": "./assets/jeera powder.svg",
+        "price": "₹ 100.00",
+        "description": "Jeera powder, made from ground cumin seeds, offers a warm, earthy flavor that enhances a wide variety of dishes. It's commonly used in curries, stews, rice dishes, and soups. Jeera powder is also known for its digestive benefits and can aid in relieving bloating and indigestion."
+    },
+    {
+        "title": "Turmeric Powder",
+        "imageSrc": "./assets/Tumeric Powder.svg",
+        "price": "₹ 100.00",
+        "description": "Turmeric powder, derived from the root of the turmeric plant, has a distinct yellow color and earthy, slightly bitter flavor. It's widely used in cooking, especially in curries and soups. Turmeric is also praised for its anti-inflammatory and antioxidant properties, which are beneficial for overall health."
+    }
+]
