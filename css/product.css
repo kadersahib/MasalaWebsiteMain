@@ -1085,7 +1085,7 @@ span {
 #footer {
     text-align: center;
     font-family: poppins;
-    margin-top: 90px;
+    margin-top: 50px;
 }
 
 #fotter-h2 {
@@ -1096,7 +1096,7 @@ span {
     margin-bottom: 8px;
 }
 
-#text-footer p {
+#footer p {
     font-size: 16px;
     color: #555;
     margin-bottom: 30px;
@@ -1718,6 +1718,15 @@ span {
         display: none;
     }
 
+    #footer {
+        margin-top: 70px;
+    }
+
+    #footer p {
+        font-size: 13px;
+        margin-bottom: 20px;
+    }
+
 }
 
 
@@ -1933,7 +1942,7 @@ span {
         z-index: 100;
     }
 
-    .footer {
+    #footer {
         margin-top: 90px;
     }
 
@@ -2426,11 +2435,7 @@ span {
         padding-bottom: 10px;
     }
 
-    .text-footer p {
-        font-size: 16px;
-        color: #383838;
-        margin-bottom: 16px;
-    }
+
 
     .footer-icons {
         margin-top: 30px;
