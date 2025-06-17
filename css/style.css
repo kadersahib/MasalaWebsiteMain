@@ -444,7 +444,7 @@ body {
 
 
 /* //fotter section code */
-/* .fotter {
+.fotter {
     background: #fff;
     padding: 32px 20px;
     text-align: center;
@@ -492,7 +492,7 @@ body {
 
 .footer-icons a img:hover {
     transform: scale(1.1);
-} */
+}
 
 
 /* mobile screen */
