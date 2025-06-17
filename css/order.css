@@ -1094,7 +1094,9 @@ span {
         font-weight: 600;
     }
 
-
+    #minus {
+        margin-top: 12px;
+    }
 
     /* main content */
     .back-tick {
