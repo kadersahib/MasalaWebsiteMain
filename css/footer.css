@@ -1,0 +1,50 @@
+/* //fotter section code */
+.fotter {
+    background: #fff;
+    padding: 32px 20px;
+    text-align: center;
+}
+
+.text-fotter h2 {
+    font-size: 16px;
+    font-family: poppins;
+    color: #383838;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.text-fotter p {
+    font-size: 16px;
+    color: #383838;
+    margin-bottom: 30px;
+}
+
+.img-contact-details img {
+    width: 150px;
+    margin: 0 auto 10px;
+    display: block;
+}
+
+.img-contact-details p {
+    font-size: 16px;
+    color: #333;
+    margin: 5px 0;
+}
+
+.footer-icons {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+}
+
+.footer-icons a img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    transition: transform 0.3s;
+}
+
+.footer-icons a img:hover {
+    transform: scale(1.1);
+}

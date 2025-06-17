@@ -438,27 +438,13 @@ body {
     padding: 0 40px;
 }
 
-/* .click-more p {
-    color: #383838;
-    text-align: center;
-    font-family: Poppins;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 600;
-    margin-top: 10px;
-    text-decoration-line: underline;
-    text-decoration-style: solid;
-    width: 174px;
-    height: 18px;
-    cursor: pointer;
-    position: relative;
-} */
+
 
 
 
 
 /* //fotter section code */
-.fotter {
+/* .fotter {
     background: #fff;
     padding: 32px 20px;
     text-align: center;
@@ -506,7 +492,7 @@ body {
 
 .footer-icons a img:hover {
     transform: scale(1.1);
-}
+} */
 
 
 /* mobile screen */
