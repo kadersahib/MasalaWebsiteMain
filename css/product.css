@@ -1451,7 +1451,7 @@ span {
         display: flex;
         flex-direction: row;
         gap: 12px;
-        width: 375px;
+        width: max-content;
         height: 469px;
     }
 
@@ -1644,7 +1644,7 @@ span {
     .description {
         display: flex;
         flex-direction: column;
-        width: 370px;
+        width: auto;
         height: 164px;
         position: relative;
         right: 110px;
@@ -1659,7 +1659,7 @@ span {
     }
 
     .description p {
-        width: 359px;
+        width: 330px;
         height: 140px;
         font-size: 13px;
         font-weight: 400;
@@ -1934,7 +1934,12 @@ span {
 
     #footer p {
         font-size: 13px;
-        margin-bottom: 20px;
+        margin: 0;
+
+    }
+
+    #text-fotter p {
+        margin-left: 20px;
     }
 
 }

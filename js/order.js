@@ -1,7 +1,5 @@
 
 ///////////////////////// Search Functionaity  ///////////////////////////////////
-
-
 document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.getElementById('searchInput');
     const searchCloseIcon = document.getElementById('searchCloseIcon');
@@ -127,113 +125,8 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-document.querySelectorAll('.add-to-cart-1').forEach(button => {
-  button.addEventListener('click', () => {
-    const productCard = button.closest('.product-card'); // Get parent .product-card
 
-    const image = productCard.querySelector('.product-image').src;
-    const title = productCard.querySelector('.product-title').textContent.trim();
-    const priceText = productCard.querySelector('.product-price').textContent || "₹0";
-    const selectedSize = productCard.querySelector('.selected-option #selected').textContent.trim();
-    const price = parseFloat(priceText.replace(/[^\d.]/g, ""));
-
-    const orderData = { image, title, price, size: selectedSize };
-
-    const existing = JSON.parse(localStorage.getItem("cartItems")) || [];
-    existing.push(orderData);
-    localStorage.setItem("cartItems", JSON.stringify(existing));
-
-
-    setTimeout(() => {
-        location.reload(); // This will reload the page
-    }, 100); 
-  });
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-  // Prices object with weights and corresponding prices
-  const prices = {
-      "1000g": 600,
-      "500g": 400,
-      "400g": 300,
-      "300g": 200,
-      "200g": 150,
-      "100g": 100,
-      "50g": 50
-  };
-
-  // Get all product cards
-  const products = document.querySelectorAll('.product-card');
-
-  products.forEach(product => {
-      const selectedOption = product.querySelector('#selected');
-      const customdropdown = product.querySelector('.custom-dropdown');
-      const dropdownOptions = product.querySelector('.dropdown-option');
-      const priceElement = product.querySelector('#product-price');
-      const quantitySpan = product.querySelector('.quantity');
-      const increaseBtn = product.querySelector('.increase');
-      const decreaseBtn = product.querySelector('.decrease');
-
-      let selectedWeight = selectedOption ? selectedOption.textContent.trim() : "100g";
-      let selectedQuantity = parseInt(quantitySpan.textContent);
-
-      // Toggle dropdown visibility
-      if (customdropdown && dropdownOptions) {
-          customdropdown.addEventListener('click', (event) => {
-              event.stopPropagation(); // prevent closing immediately
-              const isVisible = dropdownOptions.style.display === 'block';
-              dropdownOptions.style.display = isVisible ? 'none' : 'block';
-          });
-
-          dropdownOptions.querySelectorAll('li').forEach(option => {
-              option.addEventListener('click', () => {
-                  selectedWeight = option.textContent.trim();
-                  selectedOption.textContent = selectedWeight;
-                  dropdownOptions.style.display = 'none';
-                  updatePrice();
-              });
-          });
-
-          // Close dropdown if clicked outside
-          document.addEventListener('click', () => {
-              dropdownOptions.style.display = 'none';
-          });
-      }
-
-      // Quantity controls
-      if (increaseBtn && decreaseBtn && quantitySpan) {
-          increaseBtn.addEventListener('click', () => {
-              selectedQuantity++;
-              quantitySpan.textContent = selectedQuantity;
-              updatePrice();
-          });
-
-          decreaseBtn.addEventListener('click', () => {
-              if (selectedQuantity > 1) {
-                  selectedQuantity--;
-                  quantitySpan.textContent = selectedQuantity;
-                  updatePrice();
-              }
-          });
-      }
-
-      // Update price function
-      function updatePrice() {
-          const unitPrice = prices[selectedWeight];
-          if (unitPrice !== undefined && priceElement) {
-              const total = unitPrice * selectedQuantity;
-              priceElement.innerHTML = `₹ ${total}.00`;
-          }
-      }
-
-      // Initialize price
-      updatePrice();
-  });
-});
-
-//////////////////////////////////////////////////////////////////////////
-
-
+// popup the demo.html file 
 document.addEventListener('DOMContentLoaded', () => {
   const confirmBtn = document.getElementById('confirm-btn');
   const popupContainer = document.getElementById('popup-container');
@@ -269,13 +162,123 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+/// logic of card item
+document.addEventListener("DOMContentLoaded", function () {
+  const cartItemContainer = document.getElementById("cartItemContainer");
+  const subtotalEl = document.getElementById("subtotal");
+  const totalPaymentEl = document.getElementById("total-payment");
+  const shippingCharge = 50;
+
+  let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+  if (!cartItems.length) {
+    cartItemContainer.innerHTML = "<p>No items in the cart.</p>";
+    subtotalEl.textContent = "₹ 0.00";
+    totalPaymentEl.textContent = "₹ 0.00";
+    return;
+  }
+
+  cartItemContainer.innerHTML = "";
+
+  cartItems.forEach((item) => {
+    let quantity = item.quantity || 1;
+
+    // Ensure item has an ID
+    if (!item.id) {
+      item.id = Date.now() + Math.random(); // simple unique id
+    }
+
+    const itemDiv = document.createElement("div");
+    itemDiv.classList.add("cart-item");
+
+    itemDiv.innerHTML = `
+      <div class="image-wrapper">
+        <img src="${item.image}" alt="${item.title}">
+      </div>
+      <div class="item-details">
+        <h4>${item.title}</h4>
+        <p>₹ <span class="unit-price">${item.price}</span></p>
+        <p>Size: <span class="size">${item.size}</span></p>
+      </div>
+      <div class="quantity-control-image">
+        <div class="quantity-control">
+          <button class="decrease"><img src="./assets/minus vector.svg" alt="minus" id="minus"></button>
+          <span class="quantity">${quantity}</span>
+          <button class="increase"><img src="./assets/ plus vector.svg" alt="plus" id="plus"></button>
+        </div>
+        <img src="./assets/delete.svg" alt="Delete" class="delete-btn" data-id="${item.id}">
+      </div>
+      <div class="price">₹ <span class="item-price">${(item.price * quantity).toFixed(2)}</span></div>
+    `;
+
+    cartItemContainer.appendChild(itemDiv);
+
+    const quantitySpan = itemDiv.querySelector(".quantity");
+    const itemPriceSpan = itemDiv.querySelector(".item-price");
+    const decreaseBtn = itemDiv.querySelector(".decrease");
+    const increaseBtn = itemDiv.querySelector(".increase");
+    const deleteBtn = itemDiv.querySelector(".delete-btn");
+
+    decreaseBtn.addEventListener("click", function () {
+      if (quantity > 1) {
+        quantity--;
+        quantitySpan.textContent = quantity;
+        itemPriceSpan.textContent = (item.price * quantity).toFixed(2);
+
+        item.quantity = quantity;
+        localStorage.setItem("cartItems", JSON.stringify(cartItems));
+
+        updateSummary();
+        updateNavbarCart();
+      }
+    });
+
+    increaseBtn.addEventListener("click", function () {
+      quantity++;
+      quantitySpan.textContent = quantity;
+      itemPriceSpan.textContent = (item.price * quantity).toFixed(2);
+
+      item.quantity = quantity;
+      localStorage.setItem("cartItems", JSON.stringify(cartItems));
+
+      updateSummary();
+      updateNavbarCart();
+    });
+
+    deleteBtn.addEventListener("click", function () {
+      const itemId = parseFloat(deleteBtn.getAttribute("data-id"));
+      cartItems = cartItems.filter(cartItem => cartItem.id !== itemId);
+      localStorage.setItem("cartItems", JSON.stringify(cartItems));
+      cartItemContainer.removeChild(itemDiv);
+
+      updateSummary();
+      updateNavbarCart();
+    });
+  });
+
+  // Save updated items with ids
+  localStorage.setItem("cartItems", JSON.stringify(cartItems));
+  updateSummary();
+
+  function updateSummary() {
+    let total = 0;
+    document.querySelectorAll(".cart-item").forEach(itemEl => {
+      const itemPrice = parseFloat(itemEl.querySelector(".item-price").textContent);
+      total += itemPrice;
+    });
+
+    const paymentAmount = total + shippingCharge;
+    subtotalEl.textContent = `₹ ${total.toFixed(2)}`;
+    totalPaymentEl.textContent = `₹ ${paymentAmount.toFixed(2)}`;
+    localStorage.setItem("cartTotalAmount", paymentAmount.toFixed(2));
+  }
+});
+
 
 
 
 
 ////// Popup Fuctionality ///////////
-
-
 
 // document.addEventListener("DOMContentLoaded", function () {
 
@@ -485,3 +488,109 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 //// End of Popup Fuctionality ///////
+
+
+
+// document.querySelectorAll('.add-to-cart-1').forEach(button => {
+//   button.addEventListener('click', () => {
+//     const productCard = button.closest('.product-card'); // Get parent .product-card
+
+//     const image = productCard.querySelector('.product-image').src;
+//     const title = productCard.querySelector('.product-title').textContent.trim();
+//     const priceText = productCard.querySelector('.product-price').textContent || "₹0";
+//     const selectedSize = productCard.querySelector('.selected-option #selected').textContent.trim();
+//     const price = parseFloat(priceText.replace(/[^\d.]/g, ""));
+
+//     const orderData = { image, title, price, size: selectedSize };
+
+//     const existing = JSON.parse(localStorage.getItem("cartItems")) || [];
+//     existing.push(orderData);
+//     localStorage.setItem("cartItems", JSON.stringify(existing));
+
+
+//     setTimeout(() => {
+//         location.reload(); // This will reload the page
+//     }, 100); 
+//   });
+// });
+
+// document.addEventListener("DOMContentLoaded", () => {
+//   // Prices object with weights and corresponding prices
+//   const prices = {
+//       "1000g": 600,
+//       "500g": 400,
+//       "400g": 300,
+//       "300g": 200,
+//       "200g": 150,
+//       "100g": 100,
+//       "50g": 50
+//   };
+
+//   // Get all product cards
+//   const products = document.querySelectorAll('.product-card');
+
+//   products.forEach(product => {
+//       const selectedOption = product.querySelector('#selected');
+//       const customdropdown = product.querySelector('.custom-dropdown');
+//       const dropdownOptions = product.querySelector('.dropdown-option');
+//       const priceElement = product.querySelector('#product-price');
+//       const quantitySpan = product.querySelector('.quantity');
+//       const increaseBtn = product.querySelector('.increase');
+//       const decreaseBtn = product.querySelector('.decrease');
+
+//       let selectedWeight = selectedOption ? selectedOption.textContent.trim() : "100g";
+//       let selectedQuantity = parseInt(quantitySpan.textContent);
+
+//       // Toggle dropdown visibility
+//       if (customdropdown && dropdownOptions) {
+//           customdropdown.addEventListener('click', (event) => {
+//               event.stopPropagation(); // prevent closing immediately
+//               const isVisible = dropdownOptions.style.display === 'block';
+//               dropdownOptions.style.display = isVisible ? 'none' : 'block';
+//           });
+
+//           dropdownOptions.querySelectorAll('li').forEach(option => {
+//               option.addEventListener('click', () => {
+//                   selectedWeight = option.textContent.trim();
+//                   selectedOption.textContent = selectedWeight;
+//                   dropdownOptions.style.display = 'none';
+//                   updatePrice();
+//               });
+//           });
+
+//           // Close dropdown if clicked outside
+//           document.addEventListener('click', () => {
+//               dropdownOptions.style.display = 'none';
+//           });
+//       }
+
+//       // Quantity controls
+//       if (increaseBtn && decreaseBtn && quantitySpan) {
+//           increaseBtn.addEventListener('click', () => {
+//               selectedQuantity++;
+//               quantitySpan.textContent = selectedQuantity;
+//               updatePrice();
+//           });
+
+//           decreaseBtn.addEventListener('click', () => {
+//               if (selectedQuantity > 1) {
+//                   selectedQuantity--;
+//                   quantitySpan.textContent = selectedQuantity;
+//                   updatePrice();
+//               }
+//           });
+//       }
+
+//       // Update price function
+//       function updatePrice() {
+//           const unitPrice = prices[selectedWeight];
+//           if (unitPrice !== undefined && priceElement) {
+//               const total = unitPrice * selectedQuantity;
+//               priceElement.innerHTML = `₹ ${total}.00`;
+//           }
+//       }
+
+//       // Initialize price
+//       updatePrice();
+//   });
+// });
