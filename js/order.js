@@ -126,6 +126,114 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+
+
+document.querySelectorAll('.add-to-cart-1').forEach(button => {
+  button.addEventListener('click', () => {
+    const productCard = button.closest('.product-card'); // Get parent .product-card
+
+    const image = productCard.querySelector('.product-image').src;
+    const title = productCard.querySelector('.product-title').textContent.trim();
+    const priceText = productCard.querySelector('.product-price').textContent || "₹0";
+    const selectedSize = productCard.querySelector('.selected-option #selected').textContent.trim();
+    const price = parseFloat(priceText.replace(/[^\d.]/g, ""));
+
+    const orderData = { image, title, price, size: selectedSize };
+
+    const existing = JSON.parse(localStorage.getItem("cartItems")) || [];
+    existing.push(orderData);
+    localStorage.setItem("cartItems", JSON.stringify(existing));
+
+
+    setTimeout(() => {
+        location.reload(); // This will reload the page
+    }, 100); 
+  });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Prices object with weights and corresponding prices
+  const prices = {
+      "1000g": 600,
+      "500g": 400,
+      "400g": 300,
+      "300g": 200,
+      "200g": 150,
+      "100g": 100,
+      "50g": 50
+  };
+
+  // Get all product cards
+  const products = document.querySelectorAll('.product-card');
+
+  products.forEach(product => {
+      const selectedOption = product.querySelector('#selected');
+      const customdropdown = product.querySelector('.custom-dropdown');
+      const dropdownOptions = product.querySelector('.dropdown-option');
+      const priceElement = product.querySelector('#product-price');
+      const quantitySpan = product.querySelector('.quantity');
+      const increaseBtn = product.querySelector('.increase');
+      const decreaseBtn = product.querySelector('.decrease');
+
+      let selectedWeight = selectedOption ? selectedOption.textContent.trim() : "100g";
+      let selectedQuantity = parseInt(quantitySpan.textContent);
+
+      // Toggle dropdown visibility
+      if (customdropdown && dropdownOptions) {
+          customdropdown.addEventListener('click', (event) => {
+              event.stopPropagation(); // prevent closing immediately
+              const isVisible = dropdownOptions.style.display === 'block';
+              dropdownOptions.style.display = isVisible ? 'none' : 'block';
+          });
+
+          dropdownOptions.querySelectorAll('li').forEach(option => {
+              option.addEventListener('click', () => {
+                  selectedWeight = option.textContent.trim();
+                  selectedOption.textContent = selectedWeight;
+                  dropdownOptions.style.display = 'none';
+                  updatePrice();
+              });
+          });
+
+          // Close dropdown if clicked outside
+          document.addEventListener('click', () => {
+              dropdownOptions.style.display = 'none';
+          });
+      }
+
+      // Quantity controls
+      if (increaseBtn && decreaseBtn && quantitySpan) {
+          increaseBtn.addEventListener('click', () => {
+              selectedQuantity++;
+              quantitySpan.textContent = selectedQuantity;
+              updatePrice();
+          });
+
+          decreaseBtn.addEventListener('click', () => {
+              if (selectedQuantity > 1) {
+                  selectedQuantity--;
+                  quantitySpan.textContent = selectedQuantity;
+                  updatePrice();
+              }
+          });
+      }
+
+      // Update price function
+      function updatePrice() {
+          const unitPrice = prices[selectedWeight];
+          if (unitPrice !== undefined && priceElement) {
+              const total = unitPrice * selectedQuantity;
+              priceElement.innerHTML = `₹ ${total}.00`;
+          }
+      }
+
+      // Initialize price
+      updatePrice();
+  });
+});
+
+
+
 // popup the demo.html file 
 document.addEventListener('DOMContentLoaded', () => {
   const confirmBtn = document.getElementById('confirm-btn');
@@ -491,106 +599,3 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-// document.querySelectorAll('.add-to-cart-1').forEach(button => {
-//   button.addEventListener('click', () => {
-//     const productCard = button.closest('.product-card'); // Get parent .product-card
-
-//     const image = productCard.querySelector('.product-image').src;
-//     const title = productCard.querySelector('.product-title').textContent.trim();
-//     const priceText = productCard.querySelector('.product-price').textContent || "₹0";
-//     const selectedSize = productCard.querySelector('.selected-option #selected').textContent.trim();
-//     const price = parseFloat(priceText.replace(/[^\d.]/g, ""));
-
-//     const orderData = { image, title, price, size: selectedSize };
-
-//     const existing = JSON.parse(localStorage.getItem("cartItems")) || [];
-//     existing.push(orderData);
-//     localStorage.setItem("cartItems", JSON.stringify(existing));
-
-
-//     setTimeout(() => {
-//         location.reload(); // This will reload the page
-//     }, 100); 
-//   });
-// });
-
-// document.addEventListener("DOMContentLoaded", () => {
-//   // Prices object with weights and corresponding prices
-//   const prices = {
-//       "1000g": 600,
-//       "500g": 400,
-//       "400g": 300,
-//       "300g": 200,
-//       "200g": 150,
-//       "100g": 100,
-//       "50g": 50
-//   };
-
-//   // Get all product cards
-//   const products = document.querySelectorAll('.product-card');
-
-//   products.forEach(product => {
-//       const selectedOption = product.querySelector('#selected');
-//       const customdropdown = product.querySelector('.custom-dropdown');
-//       const dropdownOptions = product.querySelector('.dropdown-option');
-//       const priceElement = product.querySelector('#product-price');
-//       const quantitySpan = product.querySelector('.quantity');
-//       const increaseBtn = product.querySelector('.increase');
-//       const decreaseBtn = product.querySelector('.decrease');
-
-//       let selectedWeight = selectedOption ? selectedOption.textContent.trim() : "100g";
-//       let selectedQuantity = parseInt(quantitySpan.textContent);
-
-//       // Toggle dropdown visibility
-//       if (customdropdown && dropdownOptions) {
-//           customdropdown.addEventListener('click', (event) => {
-//               event.stopPropagation(); // prevent closing immediately
-//               const isVisible = dropdownOptions.style.display === 'block';
-//               dropdownOptions.style.display = isVisible ? 'none' : 'block';
-//           });
-
-//           dropdownOptions.querySelectorAll('li').forEach(option => {
-//               option.addEventListener('click', () => {
-//                   selectedWeight = option.textContent.trim();
-//                   selectedOption.textContent = selectedWeight;
-//                   dropdownOptions.style.display = 'none';
-//                   updatePrice();
-//               });
-//           });
-
-//           // Close dropdown if clicked outside
-//           document.addEventListener('click', () => {
-//               dropdownOptions.style.display = 'none';
-//           });
-//       }
-
-//       // Quantity controls
-//       if (increaseBtn && decreaseBtn && quantitySpan) {
-//           increaseBtn.addEventListener('click', () => {
-//               selectedQuantity++;
-//               quantitySpan.textContent = selectedQuantity;
-//               updatePrice();
-//           });
-
-//           decreaseBtn.addEventListener('click', () => {
-//               if (selectedQuantity > 1) {
-//                   selectedQuantity--;
-//                   quantitySpan.textContent = selectedQuantity;
-//                   updatePrice();
-//               }
-//           });
-//       }
-
-//       // Update price function
-//       function updatePrice() {
-//           const unitPrice = prices[selectedWeight];
-//           if (unitPrice !== undefined && priceElement) {
-//               const total = unitPrice * selectedQuantity;
-//               priceElement.innerHTML = `₹ ${total}.00`;
-//           }
-//       }
-
-//       // Initialize price
-//       updatePrice();
-//   });
-// });

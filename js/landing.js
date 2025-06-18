@@ -127,7 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const allproductscard = document.querySelector('.all-products');
   const productHeader = document.querySelector('.product-header');
   const banner = document.querySelector('.banner');
-  const clickmore = document.querySelector('.click-more');
+  // const clickmore = document.querySelector('.click-more');
 
   let allProducts = [];
 
@@ -186,14 +186,14 @@ document.addEventListener('DOMContentLoaded', () => {
         allproductscard.style.height = 'auto';
         banner.style.display = 'none';
         footer.style.display = '';
-        clickmore.style.display = 'none';
+        // clickmore.style.display = 'none';
         localStorage.setItem('filteredProducts', JSON.stringify(filtered));
       } else {
         updateProductDisplay(allProducts);
         productHeader.innerHTML = `<p>All Products</p>`;
         banner.style.display = '';
         footer.style.display = '';
-        clickmore.style.display = '';
+        // clickmore.style.display = '';
         localStorage.removeItem('filteredProducts');
       }
     });
@@ -204,7 +204,7 @@ document.addEventListener('DOMContentLoaded', () => {
       productHeader.innerHTML = `<p>All Products</p>`;
       banner.style.display = '';
       footer.style.display = '';
-      clickmore.style.display = '';
+      // clickmore.style.display = '';
       localStorage.removeItem('filteredProducts');
 
       document.body.classList.add('fade-out');
@@ -219,7 +219,7 @@ document.addEventListener('DOMContentLoaded', () => {
         updateProductDisplay(allProducts);
         banner.style.display = '';
         footer.style.display = '';
-        clickmore.style.display = '';
+        // clickmore.style.display = '';
       });
     });
   }
@@ -230,51 +230,6 @@ document.addEventListener('DOMContentLoaded', () => {
   
 
 
-/// to send to data to landing page to product page 
-document.addEventListener('DOMContentLoaded', () => {
-  if (window.location.pathname.includes('product.html')) {
-    const productData = localStorage.getItem('selectedProduct');
-    if (productData) {
-      const { image, title, description } = JSON.parse(productData);
-
-      const imageEl = document.getElementById('product-page-image');
-      const titleEl = document.getElementById('product-page-title');
-      const descEl = document.getElementById('product-page-description');
-
-      if (imageEl) imageEl.src = image || '';
-      if (titleEl) titleEl.textContent = title || '';
-      if (descEl) descEl.textContent = description || '';
-    } else {
-      console.error('No product data found.');
-    }
-  } else {
-    document.querySelectorAll('.product-card').forEach((productCard) => {
-      productCard.addEventListener('click', (event) => {
-        // Prevent click if it happened inside a button, link, or quantity control
-        if (
-          event.target.closest('button') ||
-          event.target.closest('a') ||
-          event.target.closest('.quantity-control') // Add a class to your quantity control container
-        ) {
-          return;
-        }
-
-        const image = productCard.querySelector('.product-image')?.src;
-        const title = productCard.querySelector('.product-title')?.textContent;
-        const description = productCard.querySelector('.product-description')?.textContent;
-
-        const productData = { image, title, description };
-        localStorage.setItem('selectedProduct', JSON.stringify(productData));
-
-        document.body.classList.add('fade-out');
-
-        setTimeout(() => {
-          window.location.href = 'product.html';
-        }, 500);
-      });
-    });
-  }
-});
 
 
 

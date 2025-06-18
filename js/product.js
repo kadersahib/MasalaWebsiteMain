@@ -179,7 +179,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const searchInput = document.getElementById('searchInput');
   const searchCloseIcon = document.getElementById('searchCloseIcon');
   const navLinks = document.querySelectorAll('.nav-links a');
-  const footer = document.querySelector('.footer');
+  const footer = document.getElementById('footer');
   const allproductscard = document.querySelector('.all-products');
   const productHeader = document.querySelector('.product-header');
   const productSection = document.querySelector('.product-section');
@@ -289,6 +289,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+
 
 document.querySelectorAll('.add-to-cart-1').forEach(button => {
   button.addEventListener('click', () => {
