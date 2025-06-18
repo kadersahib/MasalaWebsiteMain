@@ -1,32 +1,30 @@
 
 ///////////////////////// Search Functionaity  ///////////////////////////////////
 
+
 document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.getElementById('searchInput');
     const searchCloseIcon = document.getElementById('searchCloseIcon');
     const navLinks = document.querySelectorAll('.nav-links a');
     const footer = document.getElementById('footer');
     const productHeader = document.querySelector('.product-header');
-    const allproductscard = document.querySelector('.all-products')
+    const allproductscard = document.querySelector('.all-products');
     const productSection = document.querySelector('.product-section');
     const backtick = document.querySelector('.back-tick');
     const cartH2 = document.getElementById('cart-h2');
     const cartItemContainer = document.getElementById('cartItemContainer');
     const summary = document.querySelector('.summary');
     const descriptions = document.querySelectorAll('.product-description');
-    document.querySelector('.img-contact-details')?.style.setProperty('margin-top', '20px');
-document.querySelector('.footer-icons')?.style.setProperty('margin-top', '20px');
-
 
     let allProducts = [];
 
     fetch('./js/products.json')
-      .then(response => response.json())
-      .then(data => {
-        allProducts = data;
-        updateProductDisplay(allProducts);
-      })
-      .catch(error => console.error('Error loading the products:', error));
+        .then(response => response.json())
+        .then(data => {
+            allProducts = data;
+            updateProductDisplay(allProducts);
+        })
+        .catch(error => console.error('Error loading the products:', error));
 
     // Update product display based on filtered list
     function updateProductDisplay(productList) {
@@ -49,77 +47,52 @@ document.querySelector('.footer-icons')?.style.setProperty('margin-top', '20px')
                 card.style.display = 'none';
             }
         });
-            // Always apply margin-top to these elements
-    document.querySelector('.img-contact-details')?.style.setProperty('margin-top', '20px');
-    document.querySelector('.footer-icons')?.style.setProperty('margin-top', '20px');
     }
 
     updateProductDisplay(allProducts);
 
+    // Search functionality
     searchInput.addEventListener('input', () => {
-      const term = searchInput.value.trim().toLowerCase();
-  
-      // Only trigger search if 5 or more characters are entered
-      if (term.length < 5) {
-          // Reset to default view if input is less than 5 characters
-          updateProductDisplay(allProducts);
-          productHeader.innerHTML = `<p>All Products</p>`;
-          productSection.style.display = 'none';
-          productHeader.style.display = 'none';
-          cartItemContainer.style.display = 'block';
-          allproductscard.style.height = 'auto';
-          summary.style.display = 'block';
-          cartH2.style.display = 'block';
-          footer.style.display = 'block';
-          backtick.style.display = 'block';
-          descriptions.forEach(desc => desc.style.display = 'none');
-          return;
-      }
-  
-      // Perform filtering
-      const filtered = allProducts.filter(product =>
-          product.title.toLowerCase().includes(term) ||
-          product.description.toLowerCase().includes(term)
-      );
-  
-      updateProductDisplay(filtered);
-      productHeader.innerHTML = `<p><span>${filtered.length}</span> Products Found</p>`;
-      productSection.style.display = 'block';
-      productHeader.style.display = 'block';
-      cartItemContainer.style.display = 'none';
-      summary.style.display = 'none';
-      cartH2.style.display = 'none'; 
-      footer.style.display = 'block'; 
-      backtick.style.display = 'none';
-      descriptions.forEach(desc => desc.style.display = 'none');
-  
-  });
-  
+        const term = searchInput.value.trim().toLowerCase();
 
+        if (term.length < 5) {
+            updateProductDisplay(allProducts);
+            productHeader.innerHTML = `<p>All Products</p>`;
+            productSection.style.display = 'none';
+            productHeader.style.display = 'none';
+            cartItemContainer.style.display = 'block';
+            allproductscard.style.height = 'auto';
+            summary.style.display = 'block';
+            cartH2.style.display = 'block';
+            footer.style.display = 'block';
+            backtick.style.display = 'block';
+            descriptions.forEach(desc => desc.style.display = 'none');
+            return;
+        }
 
+        const filtered = allProducts.filter(product =>
+            product.title.toLowerCase().includes(term) ||
+            product.description.toLowerCase().includes(term)
+        );
 
-// Close search functionality
-searchCloseIcon.addEventListener('click', () => {
-    searchInput.value = '';
-    updateProductDisplay(allProducts);
-    productHeader.innerHTML = `<p>All Products</p>`;
-    productSection.style.display = 'none';
-    cartH2.style.display = 'block';
-    cartItemContainer.style.display = 'block';
-    footer.style.display = 'block';
-    backtick.style.display = 'block';
-    descriptions.forEach(desc => desc.style.display = 'none');
+        updateProductDisplay(filtered);
+        productHeader.innerHTML = `<p><span>${filtered.length}</span> Products Found</p>`;
+        productSection.style.display = 'block';
+        productHeader.style.display = 'block';
+        cartItemContainer.style.display = 'none';
+        summary.style.display = 'none';
+        cartH2.style.display = 'none';
+        footer.style.display = 'block';
+        backtick.style.display = 'none';
+        descriptions.forEach(desc => desc.style.display = 'none');
 
-    document.body.classList.add('fade-out');
+        // Apply margin-top ONLY after search is triggered
+        document.querySelector('.img-contact-details')?.style.setProperty('margin-top', '20px');
+        document.querySelector('.footer-icons')?.style.setProperty('margin-top', '20px');
+    });
 
-    setTimeout(() => {
-      window.location.href = 'order.html';
-    }, 500);
-});
-
-// Navigation links event handling
-navLinks.forEach(link => {
-    link.addEventListener('click', () => {
+    // Close search functionality
+    searchCloseIcon.addEventListener('click', () => {
         searchInput.value = '';
         updateProductDisplay(allProducts);
         productHeader.innerHTML = `<p>All Products</p>`;
@@ -129,8 +102,28 @@ navLinks.forEach(link => {
         footer.style.display = 'block';
         backtick.style.display = 'block';
         descriptions.forEach(desc => desc.style.display = 'none');
+
+        document.body.classList.add('fade-out');
+
+        setTimeout(() => {
+            window.location.href = 'order.html';
+        }, 500);
     });
-});
+
+    // Navigation links event handling
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            searchInput.value = '';
+            updateProductDisplay(allProducts);
+            productHeader.innerHTML = `<p>All Products</p>`;
+            productSection.style.display = 'none';
+            cartH2.style.display = 'block';
+            cartItemContainer.style.display = 'block';
+            footer.style.display = 'block';
+            backtick.style.display = 'block';
+            descriptions.forEach(desc => desc.style.display = 'none');
+        });
+    });
 });
 
 
