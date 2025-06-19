@@ -100,7 +100,7 @@ document.querySelectorAll('.add-to-cart').forEach(button => {
 
       setTimeout(() => {
           location.reload(); // This will reload the page
-      }, 100); 
+      }, 1000); 
     });
 });
 
@@ -111,9 +111,7 @@ document.getElementById('cart-icon').addEventListener('click',()=>{
     setTimeout(()=>{
       window.location.href = 'order.html';
     },500)
-  });
-
-
+});
 
 
 

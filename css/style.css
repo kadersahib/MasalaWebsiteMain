@@ -81,7 +81,6 @@ body {
 }
 
 
-
 .icons {
     display: flex;
     align-items: center;
@@ -173,7 +172,6 @@ body {
     font-family: poppins;
 }
 
-
 .close-icon-h {
     width: 13px;
     height: 13px;
@@ -194,12 +192,10 @@ body {
     right: 14px;
 }
 
-
 .search-left-icon {
     width: 22px;
     height: 22px;
 }
-
 
 .search-input {
     flex: 1;
@@ -491,55 +487,15 @@ body {
     transform: scale(1.1);
 }
 
-/* //// desktop code  */
-@media (min-width:1100px) and (max-width:1327px) {
+@media(min-width:1100px) and (max-width:1300px) {}
 
-    .product-card img {
-        width: 80px;
-        height: 140px;
-    }
-
+@media (min-width:1300px) and (max-width:1400px) {
     .product-card {
-        width: 224px;
-        padding: 10px 10px;
-    }
-
-    .selected-option {
-        padding: 5px 8px;
-        width: 45px;
-
-    }
-
-    #selected {
-        font-size: 10px;
-    }
-
-    .quantity-control {
-
-        gap: 8px;
-        padding: 3px 8px;
-        width: 42px;
-
-    }
-
-    .quantity-control span {
-        font-size: 10px;
-
+        width: 270px;
     }
 
     .add-to-cart {
-        font-size: 10px;
-        width: 100%;
-
-    }
-
-
-}
-
-@media (min-width:1328px) and (max-width:1359px) {
-
-    .product-card {
-        width: 280px;
+        width: 154px;
     }
 }
 
@@ -836,7 +792,7 @@ body {
 
 
 /* /// tab design  */
-@media (min-width:688px) and (max-width: 1023px) {
+@media (min-width:688px) and (max-width: 899px) {
     .hamburger {
         display: block;
         cursor: pointer;
@@ -900,4 +856,19 @@ body {
         display: none;
     }
 
+}
+
+@media (min-width:900px) and (max-width:1023px) {
+    .product-card {
+        width: 350px;
+        gap: 24px;
+    }
+
+    .add-to-cart {
+        width: 210px;
+    }
+
+    .selectors {
+        gap: 20px;
+    }
 }

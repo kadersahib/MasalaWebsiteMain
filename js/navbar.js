@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     setTimeout(() => {
       location.reload();
-    }, 100);
+    }, 1000);
   });
 
   // Popup Logic
@@ -63,6 +63,8 @@ document.addEventListener("DOMContentLoaded", () => {
       const html = await res.text();
       popupContainer.innerHTML = html;
 
+      
+
       const overlay = popupContainer.querySelector(".model-overlay");
       const closeBtn = popupContainer.querySelector(".close-btn");
       const cancelBtn = popupContainer.querySelector(".btn-2");
@@ -73,9 +75,10 @@ document.addEventListener("DOMContentLoaded", () => {
       function closeModal() {
         overlay.style.display = "none";
         popupContainer.innerHTML = "";
+
         setTimeout(() => {
           location.reload(); 
-        }, 300); 
+        }, 100); 
       }
 
       closeBtn.addEventListener("click", closeModal);

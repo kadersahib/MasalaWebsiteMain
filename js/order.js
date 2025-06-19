@@ -263,7 +263,7 @@ document.addEventListener('DOMContentLoaded', () => {
         getInTouchBtn?.addEventListener('click', () => {
           window.location.href = 'index.html';
         });
-      }, 10); // Small delay to ensure elements exist
+      }, 1200); // Small delay to ensure elements exist
     } catch (error) {
       console.error('Failed to load popup:', error);
     }
