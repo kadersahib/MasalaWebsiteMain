@@ -310,9 +310,9 @@ document.addEventListener("DOMContentLoaded", function () {
       </div>
       <div class="quantity-control-image">
         <div class="quantity-control">
-          <button class="decrease"><img src="./assets/minus vector.svg" alt="minus" id="minus"></button>
+          <button class="decrease"><img src="./assets/minusvector.svg" alt="minus" id="minus"></button>
           <span class="quantity">${quantity}</span>
-          <button class="increase"><img src="./assets/ plus vector.svg" alt="plus" id="plus"></button>
+          <button class="increase"><img src="./assets/ plusvector.svg" alt="plus" id="plus"></button>
         </div>
         <img src="./assets/delete.svg" alt="Delete" class="delete-btn" data-id="${item.id}">
       </div>

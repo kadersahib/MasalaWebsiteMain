@@ -64,7 +64,6 @@ document.addEventListener("DOMContentLoaded", () => {
       popupContainer.innerHTML = html;
 
       
-
       const overlay = popupContainer.querySelector(".model-overlay");
       const closeBtn = popupContainer.querySelector(".close-btn");
       const cancelBtn = popupContainer.querySelector(".btn-2");
