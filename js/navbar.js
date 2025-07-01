@@ -46,9 +46,10 @@ document.addEventListener("DOMContentLoaded", () => {
     cartNotification.style.display = "flex";
     searchIcon.style.display = "block";
 
-    setTimeout(() => {
-      location.reload();
-    }, 1000);
+    // setTimeout(() => {
+    //   location.reload();
+    // }, 400);
+    
   });
 
   // Popup Logic
@@ -77,7 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         setTimeout(() => {
           location.reload(); 
-        }, 100); 
+        }, 1000); 
       }
 
       closeBtn.addEventListener("click", closeModal);
