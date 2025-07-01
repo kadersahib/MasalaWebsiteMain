@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         setTimeout(() => {
           location.reload(); 
-        }, 1000); 
+        }, 500); 
       }
 
       closeBtn.addEventListener("click", closeModal);
